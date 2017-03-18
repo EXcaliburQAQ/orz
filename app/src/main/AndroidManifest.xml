@@ -28,6 +28,8 @@
         <activity android:name=".shake.ShakeActivity"
                   android:label="摇一摇"
                   android:parentActivityName=".MainActivity"></activity>
+        <activity android:name=".User.UserListActivity"
+                  android:parentActivityName=".MainActivity"></activity>
         <activity android:name=".api_util.WebViewActivity">
         </activity>
 

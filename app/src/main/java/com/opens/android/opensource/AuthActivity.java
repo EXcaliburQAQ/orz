@@ -31,7 +31,7 @@ public class AuthActivity extends AppCompatActivity{
     public static final String AUTH_URL= "https://www.oschina.net/action/oauth2/authorize?response_type=code&client_id=67g5B5iJJGsNdOc6LfeH&redirect_uri=https://my.oschina.net/u/2962802";
     private String mCode;
     RequestQueue mQueue;
-    public static final String CALL_BACK_URL= "https://my.oschina.net/lightningbaby";
+    public static final String CALL_BACK_URL= "https://my.oschina.net/u/2962802";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,6 +61,7 @@ public class AuthActivity extends AppCompatActivity{
                     if(url.startsWith(CALL_BACK_URL)){
                         String retrunCode=null;
                         if(url.indexOf("code=")!=-1){
+                            System.out.println(url);
                             retrunCode=getCodeFromUrl(url);
                         }
                         if(!TextUtils.isEmpty(retrunCode)){

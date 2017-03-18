@@ -3,16 +3,18 @@ package com.opens.android.opensource.api_util;
 import android.graphics.Bitmap;
 import android.net.Uri;
 
+
+
 /**
  * Created by ttc on 2017/3/13.
  */
 
 public class Api {
     private static final String TAG = "Api";
-    public static final String APP_ID= "xyE3FtbFZ9VekutWaFWn";
-    public static final String APP_SCERET= "ldxzijw5P1gR3yohBcpYfXgIo8bpWild";
+    public static final String APP_ID= "sY49QWR4dSKL53tyHnS3";
+    public static final String APP_SCERET= "Ryn8r6UtZtvjwARLYPcVBQZHh5KM0KL4";
     public static final String GRANT_TYPE="authorization_code";
-    public static final String CALL_BACK_URL= "https://my.oschina.net/lightningbaby";
+    public static final String CALL_BACK_URL= "https://my.oschina.net/u/2962802";
     public static  String ACCESS_TOKEN;
 
 //    private String accessToken;
@@ -63,6 +65,15 @@ public class Api {
     }
 //个人信息
 
+    public String getUserInfo(){
+        String url= Uri.parse("https://www.oschina.net/action/openapi/user")
+                .buildUpon()
+                .appendQueryParameter("access_token",ACCESS_TOKEN)
+                .appendQueryParameter("dataType", "json")
+                .build().toString();
+        return url;
+    }
+
     /**
      * @param userId 获取用户发布过的动弹列表
      * @return
@@ -102,7 +113,7 @@ public class Api {
      */
     public String getFcousList(String relation){
 
-        String url= Uri.parse("https://www.oschina.net/action/action/openapi/friends_list")
+        String url= Uri.parse("https://www.oschina.net/action/openapi/friends_list")
                 .buildUpon()
                 .appendQueryParameter("page/pageIndex", "1")
                 .appendQueryParameter("pageSize", "20")
@@ -120,7 +131,7 @@ public class Api {
      */
     public String getFanList(String relation){
 
-        String url= Uri.parse("https://www.oschina.net/action/action/openapi/friends_list")
+        String url= Uri.parse("https://www.oschina.net/action/openapi/friends_list")
                 .buildUpon()
                 .appendQueryParameter("page/pageIndex", "1")
                 .appendQueryParameter("pageSize", "20")
@@ -145,6 +156,22 @@ public class Api {
                 .appendQueryParameter("authorname", "false")
                 .appendQueryParameter("pageSize", "20")
                 .appendQueryParameter("page/pageIndex", "1")
+                .appendQueryParameter("dataType", "json")
+                .build().toString();
+        return url;
+
+    }
+
+    /**
+     *
+     *  获取我的信息
+     * @return
+     */
+    public String getMyInformation( ){
+
+        String url= Uri.parse("https://www.oschina.net/action/openapi/my_information")
+                .buildUpon()
+                .appendQueryParameter("access_token",ACCESS_TOKEN)
                 .appendQueryParameter("dataType", "json")
                 .build().toString();
         return url;
